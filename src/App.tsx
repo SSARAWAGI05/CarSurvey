@@ -126,43 +126,48 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   const renderSectionNav = () => {
     return (
-      <div className="flex justify-center mb-12">
-        <div className="flex space-x-3 p-2 bg-gray-900/30 backdrop-blur-xl rounded-2xl border border-gray-700/30">
-          {sections.map((section, index) => {
-            const Icon = section.icon;
-            const isActive = currentSection === section.id;
-            const isCompleted = currentSection > section.id;
-            
-            return (
-              <button
-                key={section.id}
-                onClick={() => setCurrentSection(section.id)}
-                className={`relative p-4 rounded-xl transition-all duration-500 group ${
-                  isActive
-                    ? `bg-gradient-to-r ${section.color} text-white shadow-2xl scale-110`
-                    : isCompleted
-                    ? 'bg-gray-700/50 text-green-400 hover:bg-gray-600/50'
-                    : 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-white'
-                }`}
-              >
-                <div className="relative z-10">
-                  <Icon size={20} className={isActive ? 'animate-pulse' : ''} />
-                </div>
-                {isActive && (
-                  <>
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl animate-pulse" />
-                    <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 to-purple-500/30 rounded-xl blur-sm" />
-                  </>
-                )}
-                {isCompleted && (
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-                    <CheckCircle2 size={10} className="text-white" />
+      <div className="w-full overflow-x-auto px-4 mb-12">
+        <div className="min-w-max flex justify-center">
+          <div className="flex space-x-3 p-2 bg-gray-900/30 backdrop-blur-xl rounded-2xl border border-gray-700/30">
+            {sections.map((section, index) => {
+              const Icon = section.icon;
+              const isActive = currentSection === section.id;
+              const isCompleted = currentSection > section.id;
+
+              return (
+                <button
+                  key={section.id}
+                  onClick={() => setCurrentSection(section.id)}
+                  className={`relative p-4 rounded-xl transition-all duration-500 group flex-shrink-0 ${
+                    isActive
+                      ? `bg-gradient-to-r ${section.color} text-white shadow-2xl scale-110`
+                      : isCompleted
+                      ? 'bg-gray-700/50 text-green-400 hover:bg-gray-600/50'
+                      : 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-white'
+                  }`}
+                >
+                  <div className="relative z-10">
+                    <Icon size={20} className={isActive ? 'animate-pulse' : ''} />
                   </div>
-                )}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </button>
-            );
-          })}
+
+                  {isActive && (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl animate-pulse" />
+                      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 to-purple-500/30 rounded-xl blur-sm" />
+                    </>
+                  )}
+
+                  {isCompleted && (
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                      <CheckCircle2 size={10} className="text-white" />
+                    </div>
+                  )}
+
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

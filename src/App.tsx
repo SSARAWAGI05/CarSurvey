@@ -312,11 +312,11 @@ const handleSubmit = async (e: React.FormEvent) => {
               <div className="relative">
                 <label className="block text-sm font-medium text-gray-300 mb-6 flex items-center space-x-2">
                   <Users size={16} className="text-green-400" />
-                  <span>What is your current q3_occupation?</span>
+                  <span>What is your current occupation?</span>
                 </label>
                 {renderRadioGroup(
                   'q3_occupation',
-                  ['Student', 'Working Professional', 'Business Owner', 'Homemaker', 'Retired', 'Other (please specify)'],
+                  ['Student', 'Working Professional', 'Business Owner', 'Homemaker', 'Retired', 'None of the above'],
                   formData.q3_occupation,
                   (value) => handleInputChange('q3_occupation', value)
                 )}
@@ -399,7 +399,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     'Can\'t find the best deal or discount',
                     'Long waiting periods',
                     'Worried about scams or fake documents',
-                    'Other (please specify)'
+                    'None of the above'
                   ],
                   formData.q6_challenges,
                   (value) => handleMultiSelectChange('q6_challenges', value)
@@ -863,7 +863,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             {/* Credit */}
             <div className="pt-8">
               <p className="text-gray-600 text-xs font-light tracking-wider">
-                Shubam Sarawagi
+                Made by Shubam Sarawagi
               </p>
             </div>
           </div>

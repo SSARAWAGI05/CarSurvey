@@ -375,7 +375,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-red-500/10 rounded-2xl blur-xl" />
               <div className="relative z-10 p-8">
                 <h2 className={`text-4xl font-bold bg-gradient-to-r ${currentSectionData.color} bg-clip-text text-transparent mb-4 animate-pulse`}>
-                  Car Recommendation Tool
+                  Car Finder Tool
                 </h2>
                 <p className="text-gray-400 text-lg">New Cars - AI-powered recommendations</p>
                 <div className="flex justify-center mt-4">

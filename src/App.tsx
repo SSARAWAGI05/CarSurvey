@@ -62,6 +62,9 @@ import { supabase } from './supabaseClient';
 
 function App() {
   const [currentSection, setCurrentSection] = useState(1);
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentSection]);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -101,12 +104,11 @@ const handleSubmit = async (e: React.FormEvent) => {
   }
 };
 
-
-
   const renderProgressBar = () => {
     const progress = (currentSection / sections.length) * 100;
+
     return (
-      <div className="relative w-full h-3 bg-gray-900/50 rounded-full mb-8 overflow-hidden border border-cyan-500/20">
+      <div className="relative w-full max-w-md mx-auto h-3 bg-gray-900/50 rounded-full mb-8 overflow-hidden border border-cyan-500/20">
         <div className="absolute inset-0 bg-gradient-to-r from-gray-800/30 to-gray-700/30 rounded-full" />
         <div 
           className="h-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
@@ -736,7 +738,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
+     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden overflow-x-hidden">
       {/* Enhanced Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
@@ -803,7 +805,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               {renderSection()}
 
               {/* Navigation Buttons */}
-              <div className="flex justify-between mt-16">
+              <div className="flex flex-col sm:flex-row justify-between gap-4 mt-16">
                 <button
                   onClick={() => setCurrentSection(Math.max(1, currentSection - 1))}
                   disabled={currentSection === 1}

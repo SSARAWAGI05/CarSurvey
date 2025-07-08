@@ -54,7 +54,7 @@ const sections = [
   { id: 3, title: 'Car Recommendation Tool', icon: Star, color: 'from-purple-400 to-pink-500' },
   { id: 4, title: 'Best Deal Finder', icon: DollarSign, color: 'from-pink-400 to-red-500' },
   { id: 5, title: 'Used Car Evaluation', icon: Search, color: 'from-red-400 to-orange-500' },
-  { id: 6, title: 'Trust & Recommendation', icon: Shield, color: 'from-orange-400 to-yellow-500' },
+  { id: 6, title: 'Trust', icon: Shield, color: 'from-orange-400 to-yellow-500' },
   { id: 7, title: 'Final Feedback', icon: MessageCircle, color: 'from-yellow-400 to-green-500' }
 ];
 
